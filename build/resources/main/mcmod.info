@@ -2,7 +2,7 @@
     {
         "modid": "sendtospawn",
         "name": "SendToSpawn",
-        "version": "1.0-SNAPSHOT",
+        "version": "1.0",
         "description": "Sends player to spawn when they log in ",
         "authorList": [
             "Bebabo10"
