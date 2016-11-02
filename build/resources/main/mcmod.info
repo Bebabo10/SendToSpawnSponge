@@ -1,0 +1,14 @@
+[
+    {
+        "modid": "sendtospawn",
+        "name": "SendToSpawn",
+        "version": "1.0-SNAPSHOT",
+        "description": "Sends player to spawn when they log in ",
+        "authorList": [
+            "Bebabo10"
+        ],
+        "requiredMods": [
+            "spongeapi@5.0.0"
+        ]
+    }
+]
