@@ -7,6 +7,8 @@ import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
 import org.spongepowered.api.command.spec.CommandExecutor;
+import org.spongepowered.api.entity.living.player.Player;
+import org.spongepowered.api.entity.living.player.User;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.format.TextColors;
 
@@ -16,12 +18,17 @@ public class STSExecutor implements CommandExecutor {
     public STSExecutor() {
     }
 
+    @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if(!args.hasAny("target")) {
             src.sendMessage(Text.of(new Object[]{TextColors.RED, "Invalid arguments"}));
             return CommandResult.success();
         } else {
-            String target = (String)args.getOne("target").get();
+
+            User user = args.<User>getOne("target").get();
+            String target = user.getName();
+
+
             if(STSList.contains(target)) {
                 src.sendMessage(Text.of(new Object[]{TextColors.RED, target + " Has been Already been added to the Send To Spawn List"}));
                 return CommandResult.success();
@@ -34,6 +41,7 @@ public class STSExecutor implements CommandExecutor {
     }
 
     public List<String> getSTSList() {
+
         return STSList;
     }
 }

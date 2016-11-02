@@ -46,9 +46,18 @@ public class SendToSpawn {
 
     @Listener
     public void onInit(GameInitializationEvent event) {
-        CommandSpec CmdSTS = CommandSpec.builder().description(Text.of("Sends player to spawn on there next login attempt")).permission("SendToSpawn.admin").arguments(GenericArguments.string(Text.of("target"))).executor(new STSExecutor()).build();
-        this.game.getCommandManager().register(this, CmdSTS, new String[]{"STS", "SendToSpawn"});
+        CommandSpec CmdSTS = CommandSpec.builder()
+                .description(Text.of("Sends player to spawn on there next login attempt"))
+                .permission("SendToSpawn.admin")
+                .arguments(GenericArguments.user(Text.of("target")))
+                .executor(new STSExecutor())
+                .build();
+        this.game.getCommandManager().register(this, CmdSTS, "STS", "SendToSpawn");
     }
+
+
+
+
 
     public void STS(Player player) {
         List STSL = STSExecutor.STSList;
